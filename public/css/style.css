@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+*{
+    font-family: 'PT Sans Narrow', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+#banner{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(235, 227, 227, 0.75),rgba(219, 212, 212, 0.75)),url("../img/banner.jpg");
+    background-size: cover;
+    text-align: center;
+}
+#content{
+    max-width: 68%;
+}
+#content h2{
+    font-family: 'Londrina Solid', cursive;
+    font-size: 3.5em;
+}
+#content p{
+    font-size: 1.5em;
+}
+#btn-start{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: #EE1944;
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    transition: .5s;
+}
+#btn-start:hover{
+    letter-spacing: 3px;
+}
+
+.menuToggle{
+    display: none;
+}
+header#navbars{
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 50px;
+    transition: .2s;
+}
+.sticky{
+    background-color: #fff;
+    box-shadow: 0 5px 20px black;
+}
+header#navbars ul{
+    position: relative;
+    margin-top: 10px;
+}
+header#navbars ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 32px;
+}
+header#navbars ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
+header#navbars #nav-brand{
+    display: inline-block;
+    color: black;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-decoration: none;
+}
+header#navbars #nav-brand span{
+    color: #EE1944;
+}
+#about,#product,#contributor,#footer{
+    margin-top: 250px;
+}
+#about h2 {
+    font-size: 40px;
+    font-family: 'Londrina Solid', cursive;
+    border-bottom: 2px solid #EE1944;
+}
+#about span{
+    color: #EE1944;
+    font-weight: bold;
+}
+#about p{
+    font-size: 19px;
+}
+#card-about{
+    margin-left: 30px;
+}
+#product {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background-color: #e4e6e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#product h2{
+    font-size: 40px;
+    font-family: 'Londrina Solid', cursive;
+    border-bottom: 2px solid #EE1944;
+    text-align: center;
+}
+#product h2 span{
+    color: #EE1944;
+    font-weight: bold;
+}
+#product .card img{
+    height: 270px;
+    object-position: top;
+    object-fit: cover;
+}
+#product .card .card-title{
+    font-weight: bold;
+}
+#product .card p{
+    font-size: 17px;
+}
+.btn-detail{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: #EE1944;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: .5s;
+}
+.btn-detail:hover{
+    text-decoration: none;
+    color: white;
+}
+#btn-more{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: #EE1944;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: .5s;
+    margin-top: 20px;
+}
+#contributor h2 {
+    font-size: 40px;
+    font-family: 'Londrina Solid', cursive;
+    border-bottom: 2px solid #EE1944;
+}
+#contributor span{
+    color: #EE1944;
+    font-weight: bold;
+}
+#contributor p{
+    font-size: 19px;
+}
+#contributor img{
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+#footer{
+    background-color: #e4e6e7;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer .i-link{
+    display: inline-block;
+    color: black;
+    margin-left: 8px;
+    font-size: 20px;
+}
+@media (max-width: 991px){
+    header #navigation{
+        display: none;
+    }
+    header#navbars{
+        padding: 10px 15px;
+    }
+    header#navbars .menuToggle{
+        display: block;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    header.active{
+        background-color: #fff;
+        transition: 0s;
+    }
+    header #navigation.active{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 55px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #fff;
+    }
+    header#navbars ul li{
+        margin-left: -20px;
+    }
+    #card-about{
+        margin-top: 30px;
+    }
+}
+@media (max-width: 573px){
+    #card-about{
+        margin-left: 0px;
+    }
+}
+.border-md {
+    border-width: 2px;
+}
+
+.btn-facebook {
+    background: #405D9D;
+    border: none;
+}
+
+.btn-facebook:hover, .btn-facebook:focus {
+    background: #314879;
+}
+
+.btn-twitter {
+    background: #42AEEC;
+    border: none;
+}
+.form-control:not(select) {
+    padding: 1.5rem 0.5rem;
+}
+
+select.form-control {
+    height: 52px;
+    padding-left: 0.5rem;
+}
+
+.form-control::placeholder {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.content-login{
+    margin-top: 10em;
+    box-shadow: 2em 3rem 6em rgba(51, 51, 51, 0.15);
+    padding: 20px;
+    border-radius: 14px;
+}
+#btn-login,#btn-register{
+    background-color: #EE1944;
+    color: white;
+    font-weight: bold;
+}
+.content-register{
+    margin-top: 7em;
+    box-shadow: 2em 3rem 6em rgba(51, 51, 51, 0.15);
+    padding: 20px;
+    border-radius: 14px;
+}
+@media (max-width:769px){
+    .content-login,.content-register{
+        margin-top: 1em;
+        box-shadow: none;
+    }
+}
+.social-content{
+    display: flex;
+    justify-content: center;
+    padding-left: 210px;
+    margin-bottom: 20px;
+}
+#google{
+    color: white;
+    display: inline-block;
+    background-color:red;
+    padding: 6px 10px;
+}
+#github{
+    display: inline-block;
+    color: white;
+    padding: 6px 10px;
+    background-color: #000000;
+    margin-left: 9px;
+}
+#twitter{
+    display: inline-block;
+    color: white;
+    background-color: rgb(45, 151, 187);
+    padding: 6px 10px;
+    margin-left: 9px;
+}
+@media (max-width: 1084px){
+    .social-content{
+        padding-left: 170px;
+    }
+}
+@media (max-width: 859px){
+    .social-content{
+        padding-left: 140px;
+    }
+}
+@media (max-width: 763px){
+    .social-content{
+        padding-left: 190px;
+    }
+}
+@media (max-width: 670px){
+    .social-content{
+        padding-left: 170px;
+    }
+}
