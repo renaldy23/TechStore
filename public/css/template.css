@@ -1,4 +1,41 @@
-
-#accordionSidebar{
-    background: #EE1944;
+#accordionSidebar,#btn-search{
+    background-color: #ee1f49; 
+}
+.form-input{
+    width: 100%;
+    padding: 8px;
+    border-top: none;
+    border-right:none ;
+    border-left: none;
+    border-bottom: 1.5px solid black;
+    transition: .5s;
+}
+.form-input:focus{
+    outline: none;
+}
+textarea{
+    resize: none;
+}
+#upload-image .img{
+    width: 10%;
+}
+@media (max-width:1100px){
+    #upload-image .img{
+        width: 15%;
+    }
+}
+@media (max-width: 720px){
+    #upload-image .img{
+        width: 20%;
+    }
+}
+@media (max-width: 547px){
+    #upload-image .img{
+        width: 25%;
+    }
+}
+#btn-submit{
+    background-color: #EE1944;
+    color: white;
+    font-weight: bold;
 }

@@ -24,3 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get("/admin" , "AdminController@index")->middleware("is_admin");
 Route::get('auth/{provider}', 'AuthController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'AuthController@handleProviderCallback');
+
+Route::get("/product/create" , "ProductController@create");
+Route::get("/category/create" , "ProductController@category");
+Route::post("/category/store" , "ProductController@category_create");
+Route::post("/product/store" , "ProductController@store");

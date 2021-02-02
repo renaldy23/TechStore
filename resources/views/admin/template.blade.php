@@ -4,12 +4,13 @@
 <head>
 
   <meta charset="utf-8">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - 404</title>
+  <title>{{ $title }}</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset("vendor/fontawesome-free/css/all.min.css") }}" rel="stylesheet" type="text/css">
@@ -17,6 +18,8 @@
 
   <!-- Custom styles for this template-->
   <link href="{{ asset("css/sb-admin-2.min.css") }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset("css/template.css") }}">
+  <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 
 </head>
 
@@ -26,7 +29,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -51,11 +54,18 @@
         Admins
       </div>
 
-      <li class="nav-item">
-        <a href="/product" class="nav-link">
-          <i class="fas fa-boxes"></i>
-          <span>Products</span>
+      <li class="nav-item {{ request()->is("product/create") || request()->is("category/create")?"active":"" }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Product</span>
         </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Activity:</h6>
+              <a class="collapse-item" href="/product/create">Create Product</a>
+              <a class="collapse-item" href="/category/create">Create Category</a>
+          </div>
+        </div>
       </li>
 
       <li class="nav-item">
@@ -97,7 +107,7 @@
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn" type="button" id="btn-search" style="color: white">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
@@ -238,7 +248,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span style="font-size: 20px"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -328,7 +338,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{ asset("js/sb-admin-2.min.js") }}"></script>
-
+  @stack('script')
 </body>
 
 </html>

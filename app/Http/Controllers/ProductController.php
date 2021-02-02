@@ -3,25 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\Category;
 
-class AdminController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        $data = [
-            "title" => "TechStore - Admin"
-        ];
-        return view("admin.home",$data);
+        //
     }
 
     /**
@@ -31,7 +25,12 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::get();
+        $data = [
+            "title" => "Admin - Create",
+            "categories" => $categories
+        ];
+        return view("admin.create",$data);
     }
 
     /**
@@ -42,7 +41,15 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "product" => "required",
+            "price" => "required",
+            "stock" => "required",
+            "description" => "required",
+            "cover" => "required|image",
+            "image1" => "required|image",
+            "image2" => "required|image"
+        ]);
     }
 
     /**
@@ -88,5 +95,22 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function category()
+    {
+        $category = Category::get();
+        $data = [
+            "title" => "Admin - Create",
+            "categories" => $category
+        ];
+        return view("admin.category",$data);
+    }
+    public function category_create()
+    {
+        Category::create([
+            "category_name" => request()->category
+        ]);
+        return response()->json(["success"=>"Success create data , please refresh the page"]);
     }
 }
